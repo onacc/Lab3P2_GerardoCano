@@ -8,6 +8,8 @@ package lab3p2_gerardocano;
  *
  * @author gcano
  */
-public class Moto {
+public class Moto extends Vehiculo {
+    private String descmot;
+    
     
 }

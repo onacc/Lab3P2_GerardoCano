@@ -8,6 +8,9 @@ package lab3p2_gerardocano;
  *
  * @author gcano
  */
-public class Camion {
+public class Camion extends Vehiculo{
+    private int maxvel;
+    private int altura;
+    private boolean verif;
     
 }

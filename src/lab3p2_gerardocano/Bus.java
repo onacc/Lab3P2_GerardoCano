@@ -8,6 +8,7 @@ package lab3p2_gerardocano;
  *
  * @author gcano
  */
-public class Bus {
-    
+public class Bus extends Vehiculo{
+    private int contpas;
+    private String tipo;
 }

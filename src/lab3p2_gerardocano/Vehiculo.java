@@ -11,17 +11,17 @@ import java.awt.Color;
  * @author gcano
  */
 public class Vehiculo {
-    protected Color color;
+    protected String color;
     protected String marca;
     protected String modelo;
     protected int anno;
-    protected int precio;
+    protected double precio;
     protected int contllan;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(Color color, String marca, String modelo, int anno, int precio, int contllan) {
+    public Vehiculo(String color, String marca, String modelo, int anno, double precio, int contllan) {
         this.color = color;
         this.marca = marca;
         this.modelo = modelo;
@@ -30,11 +30,11 @@ public class Vehiculo {
         this.contllan = contllan;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
@@ -62,11 +62,11 @@ public class Vehiculo {
         this.anno = anno;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
