@@ -40,8 +40,43 @@ static Random ran = new Random();
                         vende.add(newConce());
                     break;
                     case 2:
+                        if(vende.isEmpty()){
+                            System.out.println("Lista vacia");
+                        }else{
+                        imprimirLista(vende);
+                        System.out.println("Ingrese el indice que desea eliminar");
+                        int pos = read.nextInt();
+                        if(pos>vende.size()||pos<0){
+                            System.out.println("posicicion fuera de limites");
+                        }else{
+                        vende.remove(pos);
+                        }}
                     break;
                     case 3:
+                       imprimirLista(vende);
+                        System.out.println("Ingrese el indice que desea modificar");
+                        int pos = read.nextInt();
+                        if(pos>vende.size()||pos<0){
+                            System.out.println("posicicion fuera de limites");
+                        }else{
+                            System.out.println("Que desea modificar?");
+                            System.out.println("1.Direccion");
+                            System.out.println("2.Saldo");
+                            int ops = read.nextInt();
+                            switch(ops){
+                                case 1:
+                                    System.out.println("Ingrese la nueva direccion");
+                                    read.next();
+                                    String dir = read.next();
+                                    vende.get(pos).setDireccion(dir);
+                                break;
+                                case 2:
+                                    System.out.println("Ingrese el nuevo saldo");
+                                    double precio = read.nextDouble();
+                                    vende.get(pos).setSaldo(precio);
+                                break;
+                            }
+                        }
                     break;
                 }
             break;
@@ -58,14 +93,43 @@ static Random ran = new Random();
                     break;
                     case 2:
                         
+                        if(clientes.isEmpty()){
+                            System.out.println("Lista vacia");
+                        }else{
+                        imprimirLista(clientes);
+                        System.out.println("Ingrese el indice del cliente que desea eliminar");
+                        int pos = read.nextInt();
+                         if(pos>clientes.size()||pos<0){
+                            System.out.println("posicicion fuera de limites");
+                        }else{
+                          clientes.remove(pos);
+                         }}
                     break;
                     case 3:
+                        if(clientes.isEmpty()){
+                            System.out.println("Lista vacia");
+                        }else{
+                            imprimirLista(clientes);
+                             System.out.println("Ingrese el indice que desea modificar");
+                        int pos = read.nextInt();
+                        if(pos>clientes.size()||pos<0){
+                            System.out.println("posicicion fuera de limites");
+                        }else{
+                            System.out.println("Ingrese el nuevo saldo del cliente");
+                            double p = read.nextDouble();
+                            clientes.get(pos).setSaldo(p);
+                        }}
                     break;
                 }
                 
             break;
             //vehiculos
             case 3:
+                int i =2;
+                if(i==3){
+                    System.out.println("No se ha ingresado la informacion suficiente para agregar un vehiculo");
+                    
+                }else{
                 System.out.println("1.Agregar");
                 System.out.println("2.Eliminar");
                 System.out.println("3.Modificar");
@@ -79,12 +143,12 @@ static Random ran = new Random();
                     break;
                     case 3:
                     break;
-                }
+                }}
             break;
             //compra
             case 4:
                 if(vende.isEmpty()&&clientes.isEmpty()&&vehi.isEmpty()){
-                    System.out.println("No se ha ingresado la informaicon suficiente para hacer una transaccion");
+                    System.out.println("No se ha ingresado la informacion suficiente para hacer una transaccion");
                     
                 }else{
                     
@@ -119,9 +183,12 @@ static Random ran = new Random();
        
         System.out.println("Ingrese saldo disponible");
         double sal = read.nextDouble();
+        System.out.println("Agregar Vehiculos");
+       
         Clientes retorno = new Clientes(id,nombre,sal);
         return retorno;
     }
+    //vehiculos
     static void newVehiculo(){
         System.out.println("Ingrese el color del vehiculo");
         String color = read.next();
@@ -133,6 +200,7 @@ static Random ran = new Random();
         String modelo = read.next();
         System.out.println("Ingrese precio del vehiculo");
         double prec = read.nextInt();
+        System.out.println("Ingrese cantidad de llantas 2 o 4");
         int conllan = read.nextInt();
         if (conllan ==4||conllan==2) {
             switch(conllan){
@@ -237,5 +305,11 @@ static Random ran = new Random();
         }
         Camion retorno= new Camion(maxlev,  alt,verif,  color, marca,  modelo,  anno,  prec, conllan);
         return retorno;
+    }
+     static void imprimirLista(ArrayList lista){
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println((i)+") "+lista.get(i));
+            System.out.println("");
+        }
     }
 }
