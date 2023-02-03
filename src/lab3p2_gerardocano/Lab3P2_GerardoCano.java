@@ -31,7 +31,8 @@ static Random ran = new Random();
         op = read.nextInt();
         switch(op ){
             case 1:
-                
+                int opcion;
+                System.out.println("");
             break;
             case 2:
                 
@@ -58,6 +59,7 @@ static Random ran = new Random();
         System.out.println("Ingrese saldo disponible ");
         double sal = read.nextDouble();
         Concesonaria retorno = new  Concesonaria(nombre, id, dir, sal);
+        return retorno;
         
     }
     static Clientes newCliente(){
