@@ -12,5 +12,8 @@ public class Camion extends Vehiculo{
     private int maxvel;
     private int altura;
     private boolean verif;
+
+    public Camion() {
+    }
     
 }
