@@ -110,7 +110,7 @@ static Random ran = new Random();
                             System.out.println("Lista vacia");
                         }else{
                             imprimirLista(clientes);
-                             System.out.println("Ingrese el indice que desea modificar");
+                            System.out.println("Ingrese el indice que desea modificar");
                         int pos = read.nextInt();
                         if(pos>clientes.size()||pos<0){
                             System.out.println("posicicion fuera de limites");
@@ -126,7 +126,7 @@ static Random ran = new Random();
             //vehiculos
             case 3:
                 int i =2;
-                if(i==3){
+                if(vende.isEmpty()||clientes.isEmpty()){
                     System.out.println("No se ha ingresado la informacion suficiente para agregar un vehiculo");
                     
                 }else{
@@ -136,12 +136,48 @@ static Random ran = new Random();
                 opcion = read.nextInt();
                 switch(opcion){
                     case 1:
-                        newVehiculo();
+                           vehi.add(newVehiculo());
                     break;
                     case 2:
-                        
+                        if(vehi.isEmpty()){
+                            System.out.println("No se ha agregado ningun vehiculo");
+                            
+                        }else{
+                             System.out.println("Ingrese la posicion que desea eliminar");
+                            int pos = read.nextInt();
+                            if(pos>clientes.size()||pos<0){
+                            System.out.println("posicicion fuera de limites");
+                        }else{
+                                vehi.remove(pos);
+                            }
+                            
+                        }
                     break;
                     case 3:
+                        if(vehi.isEmpty()){
+                            System.out.println("No se ha agregado nungun vehiculo");
+                            
+                        }else{
+                            System.out.println("Ingrese la posicion que desea modificar");
+                            int pos = read.nextInt();
+                            if(pos>clientes.size()||pos<0){
+                            System.out.println("posicicion fuera de limites");
+                        }else{
+                                for (Object t :vehi ) {
+                                    if(t instanceof Camion){
+                                        //vehi.set(pos,;
+                                }else if(t instanceof Bus){
+                                    
+                                }else if(t instanceof Carro){
+                                    
+                                }else if(t instanceof Moto){
+                                    
+                                }else if (t instanceof Bici){
+                                    
+                                }
+                                }
+                        }}
+                        
                     break;
                 }}
             break;
