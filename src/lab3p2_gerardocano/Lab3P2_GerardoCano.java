@@ -13,13 +13,11 @@ import java.util.Random;
 public class Lab3P2_GerardoCano {
 static Scanner read = new Scanner (System.in);
 static Random ran = new Random();
-    /**
-     * @param args the command line arguments
-     */
+        static ArrayList<Concesonaria> vende = new ArrayList();
+        static ArrayList<Clientes> clientes = new ArrayList();
+        static ArrayList<Vehiculo> vehi = new ArrayList();
     public static void main(String[] args) {
-        ArrayList<Concesonaria> vende = new ArrayList();
-        ArrayList<Clientes> clientes = new ArrayList();
-        ArrayList<Vehiculo> vehi = new ArrayList();
+        
         int op;
         do{
         System.out.println("Menu");
@@ -39,7 +37,7 @@ static Random ran = new Random();
                 opcion = read.nextInt();
                 switch(opcion){
                     case 1:
-                        
+                        vende.add(newConce());
                     break;
                     case 2:
                     break;
@@ -59,6 +57,7 @@ static Random ran = new Random();
                         clientes.add(newCliente());
                     break;
                     case 2:
+                        
                     break;
                     case 3:
                     break;
@@ -73,9 +72,10 @@ static Random ran = new Random();
                 opcion = read.nextInt();
                 switch(opcion){
                     case 1:
-                        
+                        newVehiculo();
                     break;
                     case 2:
+                        
                     break;
                     case 3:
                     break;
@@ -83,7 +83,7 @@ static Random ran = new Random();
             break;
             //compra
             case 4:
-                if(vende.size()==0&&clientes.size()==0&&vehi.size()==0){
+                if(vende.isEmpty()&&clientes.isEmpty()&&vehi.isEmpty()){
                     System.out.println("No se ha ingresado la informaicon suficiente para hacer una transaccion");
                     
                 }else{
@@ -122,7 +122,7 @@ static Random ran = new Random();
         Clientes retorno = new Clientes(id,nombre,sal);
         return retorno;
     }
-    static Vehiculo newVehiculo(){
+    static void newVehiculo(){
         System.out.println("Ingrese el color del vehiculo");
         String color = read.next();
         System.out.println("Ingrese el año de fabricacion");
@@ -145,11 +145,14 @@ static Random ran = new Random();
                     op = read.nextInt();
                     switch(op){
                         case 1:
+                            vehi.add(newCarro(color,anno,marca,modelo,prec,conllan));
                             
                         break;
                         case 2:
+                            vehi.add(newCamion(color,anno,marca,modelo,prec,conllan));
                         break;
                         case 3:
+                            vehi.add(newBus(color,anno,marca,modelo,prec,conllan));
                         break;
                     }
                 break;
@@ -160,10 +163,10 @@ static Random ran = new Random();
                     int opcion = read.nextInt();
                     switch(opcion){
                         case 1:
-                            newBici(color,anno,marca,modelo,prec,conllan);
+                            vehi.add(newBici(color,anno,marca,modelo,prec,conllan));
                         break;
                         case 2:
-                            newMoto(color,anno,marca,modelo,prec,conllan);
+                            vehi.add(newMoto(color,anno,marca,modelo,prec,conllan));
                         break;
                     }
                 break;
@@ -202,10 +205,37 @@ static Random ran = new Random();
         Bici retorno = new Bici( desc,  rad, type, color,  marca, modelo, anno, prec,conllan);
         return retorno;
     }
-    static Bus newBus(){
+    static Bus newBus(String color, int anno, String marca, String modelo, double prec, int conllan){
         System.out.println("Ingrese cantidad de pasajeros");
         int contpas = read.nextInt();
         Bus retorno = new Bus( contpas,  color,  marca,  modelo,  anno, prec, conllan);
+        return retorno;
+    }
+    static Carro newCarro(String color, int anno, String marca, String modelo, double prec, int conllan){
+        System.out.println("Ingrese cantidad de puertas");
+        int contpuer = read.nextInt();
+        System.out.println("Ingrese descripcion de motor");
+        read.next();
+        String desc = read.next();
+        System.out.println("Ingrese Velocidad Maxima");
+        int vel = read.nextInt();
+        Carro retorno = new Carro( contpuer, desc, vel,  color,  marca,  modelo,  anno,  prec, conllan);
+        return retorno;
+    }
+    static Camion newCamion(String color, int anno, String marca, String modelo, double prec, int conllan){
+        boolean verif=false;
+        System.out.println("Ingrese volumen maximo de carga");
+        double maxlev = read.nextDouble();
+        System.out.println("Ingrese altura");
+        int alt = read.nextInt();
+        System.out.println("Tiene retroexcavadora?");
+        System.out.println("1.Si");
+        System.out.println("2.No");
+        int p = read.nextInt();
+        if(p==1){
+            verif = true;
+        }
+        Camion retorno= new Camion(maxlev,  alt,verif,  color, marca,  modelo,  anno,  prec, conllan);
         return retorno;
     }
 }

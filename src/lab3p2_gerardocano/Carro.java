@@ -18,7 +18,7 @@ public class Carro extends Vehiculo {
     public Carro() {
     }
 
-    public Carro(int contpuert, String descmot, int maxvel, String color, String marca, String modelo, int anno, int precio, int contllan) {
+    public Carro(int contpuert, String descmot, int maxvel, String color, String marca, String modelo, int anno, double precio, int contllan) {
         super(color, marca, modelo, anno, precio, contllan);
         this.contpuert = contpuert;
         this.descmot = descmot;
