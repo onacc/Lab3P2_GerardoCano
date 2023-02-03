@@ -103,7 +103,7 @@ static Random ran = new Random();
         System.out.println("Ingrese Direccion");
         read.next();
         String dir = read.next();
-        int id = 1+ran.nextInt(nombre.length());
+        int id = 1+ran.nextInt(200);
         System.out.println("ID generado "+id);
         System.out.println("Ingrese saldo disponible ");
         double sal = read.nextDouble();
@@ -134,19 +134,78 @@ static Random ran = new Random();
         System.out.println("Ingrese precio del vehiculo");
         double prec = read.nextInt();
         int conllan = read.nextInt();
-        if (conllan ==4) {
-            //carro, cammion, bus
-            System.out.println("");
-        }else if (conllan==2){
-            //bici o moto
+        if (conllan ==4||conllan==2) {
+            switch(conllan){
+                case 4:
+                    int op;
+                    System.out.println("Ingrese el vehiculo que desea agregar");
+                    System.out.println("1.Carro");
+                    System.out.println("2.Camion de carga");
+                    System.out.println("3.Bus");
+                    op = read.nextInt();
+                    switch(op){
+                        case 1:
+                            
+                        break;
+                        case 2:
+                        break;
+                        case 3:
+                        break;
+                    }
+                break;
+                case 2:
+                    System.out.println("Ingrese el vehiculo que desea agregar");
+                    System.out.println("1.Bicicleta");
+                    System.out.println("2.Motocicleta");
+                    int opcion = read.nextInt();
+                    switch(opcion){
+                        case 1:
+                            newBici(color,anno,marca,modelo,prec,conllan);
+                        break;
+                        case 2:
+                            newMoto(color,anno,marca,modelo,prec,conllan);
+                        break;
+                    }
+                break;
+            }
+            
+        }else{
+            System.out.println("Datos ingresados no validos");
         }
     
     }
-    static Moto newMoto(String color, int anno, String marca, String modelo,double prec ){
+    static Moto newMoto(String color, int anno, String marca, String modelo,double prec,int conllan ){
+        boolean verif = false;
         System.out.println("Ingrese descripcion del motor");
         read.next();
         String desc = read.next();
+        System.out.println("Es la moto electrica?");
+        System.out.println("1.Si");
+        System.out.println("2.No");
+        int p = read.nextInt();
+        if(p==1){
+            verif = true;
+        }
         
+        Moto retorno = new Moto( desc, verif, color, marca,  modelo, anno,  prec, conllan);
+        
+        return retorno;
     }
-    
+    static Bici newBici(String color, int anno, String marca, String modelo, double prec, int conllan){
+        System.out.println("Ingrese descripcion de la bicicleta");
+        read.next();
+        String desc = read.next();
+        System.out.println("Ingrese radio de llanta");
+        double rad = read.nextDouble();
+        System.out.println("Ingrese tipo(BMX o calle)");
+        String type = read.next();
+        Bici retorno = new Bici( desc,  rad, type, color,  marca, modelo, anno, prec,conllan);
+        return retorno;
+    }
+    static Bus newBus(){
+        System.out.println("Ingrese cantidad de pasajeros");
+        int contpas = read.nextInt();
+        Bus retorno = new Bus( contpas,  color,  marca,  modelo,  anno, prec, conllan);
+        return retorno;
+    }
 }
