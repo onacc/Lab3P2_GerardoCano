@@ -136,7 +136,7 @@ static Random ran = new Random();
                 opcion = read.nextInt();
                 switch(opcion){
                     case 1:
-                           vehi.add(newVehiculo());
+                           newVehiculo();
                     break;
                     case 2:
                         if(vehi.isEmpty()){
@@ -155,26 +155,64 @@ static Random ran = new Random();
                     break;
                     case 3:
                         if(vehi.isEmpty()){
-                            System.out.println("No se ha agregado nungun vehiculo");
-                            
+                            System.out.println("No se ha agregado ningun vehiculo");
                         }else{
-                            System.out.println("Ingrese la posicion que desea modificar");
+                            imprimirLista(vende);
+                            System.out.println("Ingrese la posicion de la concesonaria que desea modificar");
                             int pos = read.nextInt();
-                            if(pos>clientes.size()||pos<0){
+                            if(pos>vende.size()||pos<0){
                             System.out.println("posicicion fuera de limites");
                         }else{
+                                imprimirLista(vehi);
+                                System.out.println("Ingrese la posicion del vehiculo que desea modificar ");
+                                
+                                int p = read.nextInt();
+                                if(p>vehi.size()||p<0){
+                                    System.out.println("posicion fuera de limites");
+                                }else{
                                 for (Object t :vehi ) {
                                     if(t instanceof Camion){
-                                        //vehi.set(pos,;
+                                        System.out.println("Ingrese una opcion");
+                                        System.out.println("1.Volumen maximo de carga");
+                                        System.out.println("2.Altura");
+                                        System.out.println("3.Modificar retroexcavadora");
+                                        int ops = read.nextInt();
+                                        switch(ops){
+                                            case 1:
+                                                System.out.println("Ingrese el nuevo maximo volumen de carga");
+                                                double pain = read.nextDouble();
+                                                ((Camion)vende.get(pos).getVehiculos().get(p)).setMaxvel(pain);
+                                            break;
+                                            case 2:
+                                                System.out.println("Ingrese la nueva altura");
+                                                int alt = read.nextInt();
+                                                ((Camion)vende.get(pos).getVehiculos().get(p)).setAltura(alt);
+                                            break;
+                                            case 3:
+                                                boolean verif= false;
+                                                System.out.println("Tiene retroexcavadora?");
+                                                System.out.println("1.si");
+                                                System.out.println("2.no");
+                                                int o = read.nextInt();
+                                                if(o ==1){
+                                                     verif = true;
+                                                
+                                                }
+                                                ((Camion)vende.get(pos).getVehiculos().get(p)).setVerif(verif);
+                                            break;
+                                        }
+                                        
                                 }else if(t instanceof Bus){
-                                    
+                                        System.out.println("Ingrese el nueva numero pasajeros");
+                                        int pas = read.nextInt();
+                                        ((Bus)vende.get(pos).getVehiculos().get(p)).setContpas(pas);
                                 }else if(t instanceof Carro){
                                     
                                 }else if(t instanceof Moto){
                                     
                                 }else if (t instanceof Bici){
                                     
-                                }
+                                }}
                                 }
                         }}
                         
