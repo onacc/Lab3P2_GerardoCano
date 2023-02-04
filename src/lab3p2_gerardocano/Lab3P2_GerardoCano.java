@@ -266,8 +266,14 @@ static Random ran = new Random();
                                                 ((Bici)vende.get(pos).getVehiculos().get(p)).setDesc(desc);
                                             break;
                                             case 2:
+                                                System.out.println("Radio de llanta");
+                                                double d = read.nextDouble();
+                                                ((Bici)vende.get(pos).getVehiculos().get(p)).setRadio(d);
                                             break;
                                             case 3:
+                                                System.out.println("Ingrese el nuevo tipo ");
+                                                String tipo = read.next();
+                                                ((Bici)vende.get(pos).getVehiculos().get(p)).setTipo(tipo);
                                             break;
                                         }
                                     
