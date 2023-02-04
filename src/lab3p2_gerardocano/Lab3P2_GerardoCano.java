@@ -288,7 +288,23 @@ static Random ran = new Random();
             case 4:
                 if(vende.isEmpty()&&clientes.isEmpty()&&vehi.isEmpty()){
                     System.out.println("No se ha ingresado la informacion suficiente para hacer una transaccion");
-                    
+                     imprimirLista(vende);
+                            System.out.println("Ingrese la posicion de la concesonaria que desea modificar");
+                            int pos = read.nextInt();
+                            if(pos>vende.size()||pos<0){
+                            System.out.println("posicicion fuera de limites");
+                        }else{
+                                imprimirLista(vehi);
+                                System.out.println("Ingrese la posicion del vehiculo que desea modificar ");
+                                
+                                int p = read.nextInt();
+                                if(p>vehi.size()||p<0){
+                                    System.out.println("posicion fuera de limites");
+                                }else{
+                                for (Object t :vehi ) {
+                                    
+                                }}
+                                }
                 }else{
                     
                 }
