@@ -207,10 +207,69 @@ static Random ran = new Random();
                                         int pas = read.nextInt();
                                         ((Bus)vende.get(pos).getVehiculos().get(p)).setContpas(pas);
                                 }else if(t instanceof Carro){
-                                    
+                                        System.out.println("Ingrese modificar");
+                                        System.out.println("1.Cantidad de puertas");
+                                        System.out.println("2.Descripcion de motor");
+                                        System.out.println("3.Velocidad maxima");
+                                        int  pe = read.nextInt();
+                                        switch(pe){
+                                            case 1:
+                                                System.out.println("Ingrese la nueva cantidad de puertas");
+                                                int as = read.nextInt();
+                                                ((Carro)vende.get(pos).getVehiculos().get(p)).setContpuert(as);
+                                            break;
+                                            case 2:
+                                                System.out.println("Ingrese la nueva descripcion de motor");
+                                                String desc = read.next();
+                                                ((Carro)vende.get(pos).getVehiculos().get(p)).setDescmot(desc);
+                                            break;
+                                            case 3:
+                                                System.out.println("Ingrese la nueva velocidad maxima");
+                                                int vel = read.nextInt();
+                                                ((Carro)vende.get(pos).getVehiculos().get(p)).setMaxvel(vel);
+                                            break;
+                                        }
                                 }else if(t instanceof Moto){
+                                        System.out.println("Ingrese una opcion");
+                                        System.out.println("1.Descripcion de motor");
+                                        System.out.println("2.Motor electrico");
+                                        int opsi = read.nextInt();
+                                        switch(opsi){
+                                            case 1:
+                                                System.out.println("Ingrese la nueva descripcion de motor");
+                                                String desc = read.next();
+                                                ((Moto)vende.get(pos).getVehiculos().get(p)).setDescmot(desc);
+                                            break;
+                                            case 2:
+                                                boolean verif = false;
+                                                System.out.println("Tiene motor electrico?");
+                                                System.out.println("1.Si");
+                                                System.out.println("2.No");
+                                                int k = read.nextInt();
+                                                   if(k==1){
+                                                       verif = true;
+                                                   }
+                                                ((Moto)vende.get(pos).getVehiculos().get(p)).setElect(verif);
+                                            break;
+                                        }
                                     
                                 }else if (t instanceof Bici){
+                                        System.out.println("Ingrese una opcion");
+                                        System.out.println("1.Descripcion");
+                                        System.out.println("2.Radio de llanta");
+                                        System.out.println("3.Tipo");
+                                        int g = read.nextInt();
+                                        switch(g){
+                                            case 1:
+                                                System.out.println("Ingrese la nueva descripcion");
+                                                String desc = read.next();
+                                                ((Bici)vende.get(pos).getVehiculos().get(p)).setDesc(desc);
+                                            break;
+                                            case 2:
+                                            break;
+                                            case 3:
+                                            break;
+                                        }
                                     
                                 }}
                                 }
